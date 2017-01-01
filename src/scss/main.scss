@@ -1,0 +1,109 @@
+@import "normalize-scss/sass/normalize";
+@import "functions/material-color";
+
+
+@include normalize();
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+
+  padding: 0;
+
+  color: rgba(black, 0.88);
+}
+
+.header {
+  background-color: material-color(pink, A700);
+  color: #fff;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  padding: 1rem;
+
+  font-weight: 300;
+  font-size: 2rem;
+  
+  box-shadow: 0 0 10px rgba(black, 0.25);
+}
+
+
+.splash-container {
+  z-index: 1;
+  overflow: hidden;
+  width: 100%;
+  height: 75vh;
+  top: 0;
+  left: 0;
+  position: fixed !important;
+  background-image: url(/img/background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.content-wrapper {
+  position: absolute;
+  
+  left: 0;
+  top: 75vh;
+  width: 100%;
+  min-height: 25vh;
+  z-index: 2;
+  background: material-color(blue-grey, 50);
+  border-top: 1px solid material-color(pink, 50);
+  box-shadow: 0 0 10px rgba(black, 0.25);
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+
+  font-size: 1.375rem;
+}
+
+.map {
+  display: block;
+  max-width: 100%;
+  margin: 1rem auto;
+}
+
+%heading {
+  margin-bottom: 1rem;
+  font-weight: 400;
+  color: material-color(pink, 500);
+}
+
+h1 {
+  @extend %heading;
+  font-size: 2rem;  
+}
+
+h2 {
+  @extend %heading;
+  font-size: 1.75rem;  
+}
+
+h3 {
+  @extend %heading;
+  font-size: 1.5rem;  
+}
+
+
+a {
+  color: material-color(pink, 900);
+  text-decoration: underline;
+
+  &:hover {
+    color: material-color(pink, 800);
+  }
+}
