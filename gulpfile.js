@@ -1,7 +1,11 @@
+const path = require('path');
+
 const gulp = require('gulp');
 const gulpSass = require('gulp-sass');
 const htmlmin = require('gulp-htmlmin');
+const ghPages = require('gulp-gh-pages');
 const browserSync = require('browser-sync').create();
+const swPrecache = require('sw-precache');
 
 
 const SCSS_GLOB = 'src/scss/**/*.scss';
@@ -51,6 +55,21 @@ gulp.task('html', () => {
     }))
     .pipe(gulp.dest('dist'))
     .pipe(browserSync.stream());
+});
+
+
+gulp.task('generate-service-worker', ['scss', 'html', 'assets'], callback => {
+  const rootDir = 'dist';
+
+  swPrecache.write(`${rootDir}/service-worker.js`, {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
+    stripPrefix: rootDir
+  }, callback);
+});
+
+gulp.task('deploy', ['generate-service-worker'], () => {
+  return gulp.src('./dist/**/*')
+    .pipe(ghPages());
 });
 
 
