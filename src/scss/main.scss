@@ -15,11 +15,11 @@ body {
 
   padding: 0;
 
-  color: rgba(black, 0.88);
+  color: rgba(black, 0.85);
 }
 
 .header {
-  background-color: material-color(pink, A700);
+  background-color: rgba(material-color(pink, A700), 0.85);
   color: #fff;
   position: fixed;
   z-index: 10;
@@ -71,10 +71,11 @@ body {
   font-size: 1.375rem;
 }
 
-.map {
+.embed {
   display: block;
   max-width: 100%;
   margin: 1rem auto;
+  border: 0;
 }
 
 %heading {
