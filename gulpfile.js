@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 
 const gulp = require('gulp');
@@ -5,14 +6,14 @@ const gulpSass = require('gulp-sass');
 const htmlmin = require('gulp-htmlmin');
 const ghPages = require('gulp-gh-pages');
 const browserSync = require('browser-sync').create();
-const swPrecache = require('sw-precache');
 
+const SRC_DIR = 'src';
 
-const SCSS_GLOB = 'src/scss/**/*.scss';
+const SCSS_GLOB = `${SRC_DIR}/scss/**/*.scss`;
 
-const HTML_GLOB = 'src/**/*.html';
+const HTML_GLOB = `${SRC_DIR}/**/index.html`;
 
-const ASSETS_GLOB = 'src/assets/**/*';
+const ASSETS_GLOB = `${SRC_DIR}/assets/**/*`;
 
 
 gulp.task('serve', ['scss', 'html', 'assets'], function () {
@@ -57,17 +58,18 @@ gulp.task('html', () => {
     .pipe(browserSync.stream());
 });
 
-
-gulp.task('generate-service-worker', ['scss', 'html', 'assets'], callback => {
-  const rootDir = 'dist';
-
-  swPrecache.write(`${rootDir}/service-worker.js`, {
-    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
-    stripPrefix: rootDir
-  }, callback);
+gulp.task('create-redirects', complete => {
+  const redirect_html = fs.readFileSync(path.join(SRC_DIR, 'redirect.html'));
+  const redirects = ['hats', 'accessories', 'contact_us', 'faq', 'testimonials', 'directions'];
+  redirects.forEach(redirect => {
+    const outputPath = path.join('./dist', `${redirect}.html`);
+    fs.writeFileSync(outputPath, redirect_html);
+  });
+  complete();
 });
 
-gulp.task('deploy', ['generate-service-worker'], () => {
+
+gulp.task('deploy', ['scss', 'html', 'assets', 'create-redirects'], () => {
   return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
