@@ -47,11 +47,9 @@ body {
   height: 75vh;
   top: 0;
   left: 0;
-  position: fixed !important;
-  background-image: url(/img/background.jpg);
+  position: fixed;
+  background: material-color(grey, 900) url("/img/background.jpg") no-repeat center;
   background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .content-wrapper {
