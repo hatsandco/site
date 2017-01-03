@@ -96,6 +96,18 @@ body {
   @include inclined-gradient(material-color(grey, 700), material-color(grey, 600));
 }
 
+.footer {
+  @extend %section;
+  background: material-color(grey, 900);
+
+  .content {
+    font-size: 1rem;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+}
+
 %heading {
   margin-bottom: 1rem;
   font-weight: 400;
