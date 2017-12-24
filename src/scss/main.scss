@@ -1,9 +1,8 @@
-@import "normalize-scss/sass/normalize";
-@import "functions/material-color";
-@import "mixins/gradient";
+@import 'normalize-scss/sass/normalize';
+@import 'functions/material-color';
+@import 'mixins/gradient';
 
 @include normalize();
-
 
 * {
   box-sizing: border-box;
@@ -15,7 +14,7 @@ body {
   line-height: 1.5;
 
   -webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
 
   padding: 0;
 
@@ -30,15 +29,14 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  
+
   padding: 1rem;
 
   font-weight: 300;
   font-size: 2rem;
-  
+
   box-shadow: 0 0 10px rgba(black, 0.25);
 }
-
 
 .splash-container {
   z-index: 1;
@@ -48,13 +46,14 @@ body {
   top: 0;
   left: 0;
   position: fixed;
-  background: material-color(grey, 900) url("/img/background.jpg") no-repeat center;
+  background: material-color(grey, 900) url('/img/background.jpg') no-repeat
+    center;
   background-size: cover;
 }
 
 .content-wrapper {
   position: absolute;
-  
+
   left: 0;
   top: 75vh;
   width: 100%;
@@ -105,7 +104,6 @@ body {
     font-weight: 400;
     text-align: center;
   }
-  
 }
 
 %heading {
@@ -121,19 +119,18 @@ body {
 
 h1 {
   @extend %heading;
-  font-size: 2rem;  
+  font-size: 2rem;
 }
 
 h2 {
   @extend %heading;
-  font-size: 1.75rem;  
+  font-size: 1.75rem;
 }
 
 h3 {
   @extend %heading;
-  font-size: 1.5rem;  
+  font-size: 1.5rem;
 }
-
 
 a {
   color: material-color(blue, 400);
@@ -142,4 +139,11 @@ a {
   &:hover {
     color: material-color(blue, 600);
   }
+}
+
+.emphasis {
+  font-weight: 500;
+  font-style: italic;
+  border-left: 4px solid material-color(blue-grey, 600);
+  padding-left: 1rem;
 }
