@@ -1,8 +1,5 @@
-@import 'normalize-scss/sass/normalize';
 @import 'functions/material-color';
 @import 'mixins/gradient';
-
-@include normalize();
 
 * {
   box-sizing: border-box;
@@ -46,8 +43,8 @@ body {
   top: 0;
   left: 0;
   position: fixed;
-  background: material-color(grey, 900) url('/img/background.jpg') no-repeat
-    center;
+  background: material-color(grey, 900) url('../assets/img/background.jpg')
+    no-repeat center;
   background-size: cover;
 }
 
@@ -87,12 +84,18 @@ body {
 
 .section-pink {
   @extend %section;
-  @include inclined-gradient(material-color(pink, 600), material-color(pink, 300));
+  @include inclined-gradient(
+    material-color(pink, 600),
+    material-color(pink, 300)
+  );
 }
 
 .section-grey {
   @extend %section;
-  @include inclined-gradient(material-color(grey, 700), material-color(grey, 600));
+  @include inclined-gradient(
+    material-color(grey, 700),
+    material-color(grey, 600)
+  );
 }
 
 .footer {
