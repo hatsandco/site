@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build -d dist src/index.html"
+    "build": "parcel build -d dist src/index.html",
+    "deploy":
+      "npm run build && echo 'hatsandco.co.uk' > dist/CNAME && gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -15,6 +17,7 @@
   "license": "MIT",
   "homepage": "https://github.com/hatsandco/site",
   "devDependencies": {
+    "gh-pages": "^1.1.0",
     "node-sass": "^4.8.3",
     "parcel-bundler": "^1.7.0"
   },
