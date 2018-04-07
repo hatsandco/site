@@ -18,6 +18,10 @@ body {
   color: rgba(black, 0.85);
 }
 
+p {
+  margin: 0 0 1.5rem;
+}
+
 .header {
   background-color: rgba(material-color(pink, A700), 0.85);
   color: #fff;
@@ -98,6 +102,14 @@ body {
   );
 }
 
+.section-dark-grey {
+  @extend %section;
+  @include inclined-gradient(
+    material-color(grey, 900),
+    material-color(grey, 800)
+  );
+}
+
 .footer {
   @extend %section;
   background: material-color(grey, 900);
@@ -110,7 +122,7 @@ body {
 }
 
 %heading {
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
   font-weight: 400;
   color: material-color(pink, 500);
 
@@ -149,4 +161,45 @@ a {
   font-style: italic;
   border-left: 4px solid material-color(blue-grey, 600);
   padding-left: 1rem;
+}
+
+.section-header {
+  padding: 1rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.hat-milliner {
+  font-style: italic;
+  color: material-color(blue-grey, 50);
+
+  &::before {
+    content: '(';
+  }
+
+  &::after {
+    content: ')';
+  }
+}
+
+.carousel {
+  padding-bottom: 1rem;
+}
+
+.carousel img {
+  display: block;
+  height: 300px;
+  margin-right: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel img {
+    height: 450px;
+  }
+}
+
+.flickity-page-dots {
+  bottom: 1.5rem;
 }
