@@ -1,5 +1,5 @@
-@import 'functions/material-color';
-@import 'mixins/gradient';
+@import "functions/material-color";
+@import "mixins/gradient";
 
 * {
   box-sizing: border-box;
@@ -47,7 +47,7 @@ p {
   top: 0;
   left: 0;
   position: fixed;
-  background: material-color(grey, 900) url('../assets/img/background.jpg')
+  background: material-color(grey, 900) url("../assets/img/background.jpg")
     no-repeat center;
   background-size: cover;
 }
@@ -181,11 +181,11 @@ a {
   color: material-color(blue-grey, 50);
 
   &::before {
-    content: '(';
+    content: "(";
   }
 
   &::after {
-    content: ')';
+    content: ")";
   }
 }
 
