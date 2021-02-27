@@ -17,10 +17,9 @@
   "homepage": "https://github.com/hatsandco/site",
   "devDependencies": {
     "gh-pages": "^3.1.0",
-    "node-sass": "^4.14.1",
     "parcel-bundler": "^1.12.4",
-    "prettier": "^2.1.2",
-    "sass": "^1.26.11"
+    "prettier": "^2.2.1",
+    "sass": "^1.32.8"
   },
   "dependencies": {}
 }
