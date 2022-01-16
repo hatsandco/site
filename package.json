@@ -2,10 +2,9 @@
   "name": "hats-and-co",
   "version": "1.0.0",
   "description": "Site for hatsandco.co.uk",
-  "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html",
-    "build": "parcel build -d dist src/index.html",
+    "build": "parcel build src/index.html",
     "deploy": "rm -rf dist && npm run build && echo 'hatsandco.co.uk' > dist/CNAME && gh-pages -d dist"
   },
   "repository": {
@@ -13,13 +12,12 @@
     "url": "https://github.com/hatsandco/site"
   },
   "author": "Euan Goddard",
-  "license": "MIT",
   "homepage": "https://github.com/hatsandco/site",
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.2.0",
     "gh-pages": "^3.2.3",
-    "parcel-bundler": "^1.12.5",
-    "prettier": "^2.3.2",
-    "sass": "^1.37.5"
-  },
-  "dependencies": {}
+    "parcel": "^2.2.0",
+    "prettier": "^2.5.1",
+    "sass": "^1.48.0"
+  }
 }
